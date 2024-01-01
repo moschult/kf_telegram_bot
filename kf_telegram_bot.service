@@ -1,0 +1,14 @@
+[Unit]
+Description=Meravis Bot
+
+[Service]
+Type=simple
+WorkingDirectory=/home/pi/kf_telegram_bot
+ExecStart=/home/pi/kf_telegram_bot/venv/bin/python3.9 main.py
+SyslogIdentifier=meravis
+Restart=on-failure
+RestartSec=600
+CPUQuota=100%
+
+[Install]
+WantedBy=multi-user.target
