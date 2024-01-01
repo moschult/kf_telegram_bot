@@ -6,7 +6,7 @@ import config.config as cfg
 
 def scan_site():
     r = requests.get('https://www.meravis.de/mieten/wohnungssuche')
-    soup = BeautifulSoup(r.text)
+    soup = BeautifulSoup(r.text, features="html.parser")
     findings = soup.find_all("div", {"class": "immo-list-teaser"})
     filtered = filter_results(findings)
     prettified_results = prettify_results(filtered)
